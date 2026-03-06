@@ -1,0 +1,200 @@
+/* =========================
+   Safe layout defaults
+   ========================= */
+
+.reveal {
+  font-size: 34px;
+  line-height: 1.25;
+}
+
+.reveal .slide-logo{
+  width: 190px !important;
+  height: auto !important;
+  max-height: none !important;
+  right: 18px !important;
+  bottom: 18px !important;
+  left: auto !important;
+  top: auto !important;
+  opacity: 0.95;
+}
+
+/* Constrain slide content width */
+.reveal .slides section{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Headings */
+.reveal h1, .reveal h2, .reveal h3{
+  letter-spacing: -0.02em;
+  margin: 0 0 0.35em 0;
+}
+.reveal h1{ font-size: 1.65em; line-height: 1.05; }
+.reveal h2{ font-size: 1.25em; line-height: 1.10; opacity: 0.95; }
+.reveal h3{ font-size: 1.05em; opacity: 0.95; }
+
+/* Lists */
+.reveal ul, .reveal ol{ margin: 0.35em 0 0.35em 1.1em; }
+.reveal li{ margin: 0.22em 0; }
+
+/* Links */
+.reveal a{
+  text-decoration: none;
+  border-bottom: 2px solid rgba(0,0,0,0.18);
+}
+.reveal a:hover{ border-bottom-color: rgba(0,0,0,0.45); }
+
+/* Small text helper */
+.reveal .small{ font-size: 0.78em; opacity: 0.82; }
+
+/* Two-column helper (legacy .cols) */
+.reveal .cols{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Key takeaway box */
+.reveal .keytakeaway{
+  padding: 0.8em 1em;
+  border-left: 8px solid rgba(0,0,0,0.18);
+  background: rgba(0,0,0,0.04);
+  border-radius: 10px;
+  margin: 0.4em 0 0.6em 0;
+}
+
+/* Paper grid */
+.reveal .paper-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.reveal img.paper{
+  width: 100%;
+  height: auto;
+  max-height: 40vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.14);
+  background: #fff;
+  padding: 6px;
+}
+
+.reveal .paper-cap{
+  font-size: 0.62em;
+  line-height: 1.25;
+  opacity: 0.80;
+  margin-top: 8px;
+}
+
+/* Role cards */
+.reveal .role-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 18px;
+}
+.reveal .role-card{
+  background: rgba(0,0,0,0.035);
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+.reveal .role-title{
+  font-size: 1.02em;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Tables */
+.reveal table{
+  font-size: 0.80em;
+}
+.reveal table th, .reveal table td{
+  vertical-align: top;
+}
+
+/* =========================
+   Center-slide helpers (SAFE)
+   ========================= */
+
+/* Center text alignment; do NOT force height or remove padding */
+.reveal section.center-slide{
+  text-align: center;
+}
+
+/* Keep blockquotes readable on center slides */
+.reveal section.center-slide blockquote{
+  max-width: 950px;
+  text-align: left;
+}
+
+/* Optional: big quote emphasis */
+.reveal section.big-quote blockquote{
+  font-size: 1.15em;
+  line-height: 1.25;
+}
+
+/* Hide headings for slides used as layout hooks */
+.reveal section.no-title h2{
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* =========================
+   Highlight utilities (Monash-ish)
+   ========================= */
+.hl-blue { color: #2563eb; font-weight: 700; }
+.hl-red  { color: #dc2626; font-weight: 700; }
+.hl-warn { background: #fde68a; padding: 0.06em 0.25em; border-radius: 6px; font-weight: 700; }
+.muted   { opacity: 0.75; }
+
+/* UI FPsi logo — fixed top-left overlay (bulletproof) */
+body::before{
+  content: "";
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  width: 70px;          /* match lab logo scale */
+  height: 70px;
+  background-image: url("./images/psiko.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.85;
+  z-index: 99999;
+  pointer-events: none;
+}
+
+/* --- Fix fullscreen overflow: let Reveal scale properly --- */
+.reveal {
+  overflow: hidden !important;
+}
+
+.reveal .slides {
+  overflow: hidden !important;
+}
+
+/* Ensure slide content can shrink instead of forcing overflow */
+.reveal .slides section {
+  box-sizing: border-box;
+  max-width: 1200px;       /* keep your constraint */
+  margin: 0 auto;
+}
+
+/* Make images responsive in fullscreen */
+.reveal img {
+  max-width: 100%;
+  max-height: 80vh;
+  height: auto;
+}
+
+/* Tables often cause overflow */
+.reveal table {
+  max-width: 100%;
+}
